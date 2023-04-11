@@ -3,8 +3,10 @@ import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import useRegisterModal from "@/pages/hooks/useRegisterModal";
 
 const UserMenu = () => {
+  const registerModal = useRegisterModal();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const togglOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -26,7 +28,7 @@ const UserMenu = () => {
         <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
           <div className="flex flex-col curosr-pointer">
             <>
-              <MenuItem onClick={() => {}} label="회원가입" />
+              <MenuItem onClick={registerModal.onOpen} label="회원가입" />
               <MenuItem onClick={() => {}} label="로그인" />
             </>
           </div>
